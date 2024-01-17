@@ -174,7 +174,7 @@ class Kmer_Dict:
                     primer_dict['reverse'][key2] = revcomp
 
 
-        print(primer_dict)
+        return  primer_dict
 
 #Main function that controls the script:
 def main():
