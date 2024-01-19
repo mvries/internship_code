@@ -173,8 +173,86 @@ class Kmer_Dict:
                             revcomp += "C"
                     primer_dict['reverse'][key2] = revcomp
 
-
+        print(primer_dict)
         return  primer_dict
+
+    def check_primers(self):
+        """
+        Function that does a last quality check of the retrieved primers:
+
+        Note, this needs to use the primer dict of the previous function.
+        """
+
+        #First we check for dimers:
+        for key1 in self.dict.keys():
+            kmers = self.dict[key1]
+            for key2 in list(kmers.keys()):
+                kmer = kmers[key2]
+                good_primer = True
+
+                sub_kmers = []
+                rev_kmers = []
+
+                position = 0
+                while position < (len(kmer) - 2):
+                    sub_kmer = kmer[position:(position + 3)]
+                    position += 1
+                    sub_kmers.append(sub_kmer)
+
+                position = 0
+                while position < (len(kmer) - 2):
+                    sub_kmer = kmer[::-1][position:(position + 3)]
+                    position += 1
+                    rev_kmers.append(sub_kmer)
+
+                for kmer1 in sub_kmers:
+                    for kmer2 in rev_kmers:
+                        position = 0
+                        complementary_bases = 0
+
+
+                        while position < 3:
+                            base1 = kmer1[position]
+                            base2 = kmer2[position]
+                            complement = self.is_complement(base1, base2)
+                            if complement == True:
+                                complementary_bases += 1
+                            position += 1
+
+                        if complementary_bases == 3:
+                            good_primer = False
+                        else:
+                            continue
+
+                    if good_primer == False:
+                        pass
+
+
+
+    def is_complement(self, base_1, base_2):
+        """
+        Function to determine wether bases are complemtary
+        """
+        Complement = False
+
+        if base_1 == "A":
+            if base_2 == "T":
+                Complement = True
+
+        if base_1 == "T":
+            if base_2 == "A":
+                Complement = True
+
+        if base_1 == "G":
+            if base_2 == "C":
+                Complement = True
+
+        if base_1 == "C":
+            if base_2 == "G":
+                Complement = True
+
+        return Complement
+
 
 #Main function that controls the script:
 def main():
@@ -186,6 +264,7 @@ def main():
     Input_Dict = Kmer_Dict(Input_Fasta.get_kmers(length))
     Input_Dict.find_primer_regions()
     Input_Dict.get_primers()
+    Input_Dict.check_primers()
 
 #Main Switch:
 if __name__ == "__main__":
