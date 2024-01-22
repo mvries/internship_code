@@ -18,3 +18,5 @@ outputpath = path to the location were the output files are to be stored (exampl
 depth = number between 1-7 were 1 is kingdom level and 7 is species level.
 
 This script produces 2 output files, this includes the merged krona file and the taxonomy table in TSV format.
+
+Note; it may not be possible to download the script directly from github due to restrictions imposed by your organistion. In that case, copy paste the script to a txt file. Do not forget to add .py after the name of the file so it is interprented as a python file.
