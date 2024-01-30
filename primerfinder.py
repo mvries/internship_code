@@ -116,7 +116,6 @@ class Kmer_Dict:
         """
         Function used to find interesting regions for primers.
         """
-
         for key1 in self.dict.keys():
             kmers = self.dict[key1]
             for key2 in list(kmers.keys()):
@@ -173,10 +172,9 @@ class Kmer_Dict:
                             revcomp += "C"
                     primer_dict['reverse'][key2] = revcomp
 
-        print(primer_dict)
-        return  primer_dict
+        return primer_dict
 
-    def check_primers(self):
+    def check_primers(self, primer_dict):
         """
         Function that does a last quality check of the retrieved primers:
 
@@ -231,7 +229,7 @@ class Kmer_Dict:
 
     def is_complement(self, base_1, base_2):
         """
-        Function to determine wether bases are complemtary
+        Function to determine wether bases are complentary:
         """
         Complement = False
 
@@ -263,8 +261,8 @@ def main():
     Input_Fasta = Fasta_File(infile)
     Input_Dict = Kmer_Dict(Input_Fasta.get_kmers(length))
     Input_Dict.find_primer_regions()
-    Input_Dict.get_primers()
-    Input_Dict.check_primers()
+    primer_dict = Input_Dict.get_primers()
+    good_primer_dict = Input_Dict.check_primers(primer_dict)
 
 #Main Switch:
 if __name__ == "__main__":
