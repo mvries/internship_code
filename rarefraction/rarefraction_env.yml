@@ -1,0 +1,42 @@
+name: rarefraction_maker
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=2_gnu
+  - aria2=1.37.0=h347180d_1
+  - bzip2=1.0.8=hd590300_5
+  - c-ares=1.26.0=hd590300_0
+  - ca-certificates=2024.2.2=hbcca054_0
+  - fastp=0.23.4=hadf994f_2
+  - flash=1.2.11=h5bf99c6_6
+  - gawk=5.3.0=ha916aea_0
+  - gettext=0.21.1=h27087fc_0
+  - gmp=6.3.0=h59595ed_0
+  - icu=73.2=h59595ed_0
+  - isa-l=2.31.0=hd590300_1
+  - libdeflate=1.19=hd590300_0
+  - libgcc-ng=13.2.0=h807b86a_5
+  - libgomp=13.2.0=h807b86a_5
+  - libiconv=1.17=hd590300_2
+  - libidn2=2.3.7=hd590300_0
+  - libsqlite=3.45.1=h2797004_0
+  - libssh2=1.11.0=h0841786_0
+  - libstdcxx-ng=13.2.0=h7e041cc_5
+  - libunistring=0.9.10=h7f98852_0
+  - libxcrypt=4.4.36=hd590300_1
+  - libxml2=2.12.5=h232c23b_0
+  - libzlib=1.2.13=hd590300_5
+  - mmseqs2=15.6f452=pl5321h6a68c12_0
+  - mpfr=4.2.1=h9458935_0
+  - ncurses=6.4=h59595ed_2
+  - openssl=3.2.1=hd590300_0
+  - perl=5.32.1=7_hd590300_perl5
+  - readline=8.2=h8228510_1
+  - seqtk=1.4=he4a0461_1
+  - wget=1.20.3=ha35d2d1_1
+  - xz=5.2.6=h166bdaf_0
+  - zlib=1.2.13=hd590300_5
+prefix: /home/martijn/miniconda3/envs/rarefraction_maker
